@@ -1,64 +1,76 @@
 Finance Sales Analytics Dashboard
 
-Business-Aware Profit Prediction and Analytics
+An end-to-end sales and profit analytics system demonstrating why pure machine learning models fail in finance and how business-aware modeling fixes those failures.
 
-Project Overview
+Why this project exists
 
-This project is an end-to-end analytics system for analyzing sales, pricing, discounts, and profit using machine learning and business logic. It demonstrates why pure machine learning models can fail in finance-related problems and how business-aware modeling fixes those issues.
+In real business settings, profit prediction models often learn misleading correlations from historical data.
 
-The system includes data cleaning, exploratory analysis, profit modeling, and an interactive Streamlit dashboard with a profit simulator.
+Examples:
 
-The Core Problem
+Discounts appear to increase profit
 
-A profit prediction model trained purely on historical data can learn misleading correlations, such as:
-
-Higher discounts appearing to increase profit
-
-Manufacturing cost having little or no impact on profit
+Manufacturing cost has little effect on profit
 
 These patterns may be statistically valid but are financially incorrect.
 
-Two Modeling Approaches Used
+This project addresses that gap.
+
+Two modeling approaches
 1. Pure Machine Learning Model
 
-The Pure ML model predicts profit using historical patterns only.
+Trained only on historical data
 
-Learns correlations from past data
+Learns correlations and seasonal patterns
 
-Captures demand behavior and seasonality
+Can violate basic financial logic when data is biased
 
-Can violate financial logic when data is biased
+Useful for trend analysis, but unsafe for decision-making on its own.
 
-This model is useful for understanding historical trends but is unreliable for decision-making without constraints.
+2. Business-Aware Model (Improved)
 
-2. Business-Aware Model (Improved Approach)
+Encodes non-negotiable financial logic using feature engineering
 
-The Business-Aware model incorporates financial logic through feature engineering.
-
-Key ideas:
+Uses:
 
 Unit Margin = Sale Price − Manufacturing Cost
 
 Discount Ratio = Discounts / Gross Revenue
 
-This ensures:
+Ensures:
 
-Profit decreases when costs increase
+Higher costs reduce profit
 
-Profit decreases when discounts increase
+Higher discounts reduce profit
 
-Machine learning is still used to model uncertain relationships, but non-negotiable business rules are enforced.
+Machine learning is still used, but within business constraints.
 
-Dashboard Features
+What the dashboard shows
 
 Sales and profit KPIs
 
-Trend analysis over time
+Time-based trends
 
 Country-level performance
 
-Profit simulator with user-controlled inputs
+Interactive profit simulator
 
-Toggle to compare Pure ML predictions vs Business-Adjusted results
+Toggle to compare:
 
-This allows users to clearly see how business logic changes model behavior.
+Pure ML predictions
+
+Business-adjusted results
+
+This makes model behavior transparent and interpretable.
+
+Tech stack
+
+Python
+
+Pandas, NumPy
+
+Scikit-learn (Random Forest)
+
+Streamlit
+
+Plotly / Matplotlib
